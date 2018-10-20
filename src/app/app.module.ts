@@ -4,9 +4,13 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { TextToSpeech } from '@ionic-native/text-to-speech';
-import { LoginPage } from '../pages/login/login';
+
 import { MyApp } from './app.component';
+import { TabsPage } from '../pages/tabs/tabs';
 import { HomePage } from '../pages/home/home';
+import { LoginPage } from '../pages/login/login';
+import { RegisterPage } from '../pages/register/register';
+
 import { UserAuthProvider } from '../providers/user-auth/user-auth';
 
 
@@ -14,7 +18,9 @@ import { UserAuthProvider } from '../providers/user-auth/user-auth';
   declarations: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    RegisterPage,
+    TabsPage,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +30,9 @@ import { UserAuthProvider } from '../providers/user-auth/user-auth';
   entryComponents: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    RegisterPage,
+    TabsPage,
   ],
   providers: [
     StatusBar,

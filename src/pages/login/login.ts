@@ -1,34 +1,23 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { TodoPage } from '../todo/todo';
-import { RegisterPage } from '../register/register';
+import { NavController, NavParams } from 'ionic-angular';
 
-
+/**
+ * Generated class for the LoginPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 @Component({
   selector: 'page-login',
-  templateUrl: 'login.html'
+  templateUrl: 'login.html',
 })
 export class LoginPage {
-  user: any = {
-    email: "",
-    password: ""
 
-  };
-
-  constructor(public navCtrl: NavController) {
-
-  }
-  ngOnInit() {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  login() {
-    this.navCtrl.push(TodoPage)
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad LoginPage');
   }
-  toRegister() {
-    this.navCtrl.push(RegisterPage);
-  }
-
 
 }
-
-

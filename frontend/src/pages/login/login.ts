@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+
+import { UserAuthProvider } from '../../providers/user-auth/user-auth';
+
 import { HomePage } from '../home/home';
 import { RegisterPage } from '../register/register';
 import { TabsPage } from '../tabs/tabs';
@@ -23,18 +26,10 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-  ngOnInit() {
-  }
 
-  login() {
-    this.navCtrl.setRoot(TabsPage)
-  }
-  toRegister() {
-    this.navCtrl.push(RegisterPage);
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+  login(){
+    // Your app login API web service call triggers 
+    this.navCtrl.push(TabsPage, {}, {animate: false});
   }
 
 }

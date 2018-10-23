@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import { NavController, App } from 'ionic-angular';
 import {TextToSpeech} from '@ionic-native/text-to-speech';
  
 @Component({
@@ -10,8 +11,8 @@ export class HomePage {
   rate: number;
   locale: string;
  
-  constructor(private tts: TextToSpeech) {
-    this.text = 'Initial text';
+  constructor(public navCtrl: NavController, public app: App, private tts: TextToSpeech) {
+    this.text = 'Enter text here...';
     this.rate = 1;
     this.locale = 'en-US';
   }
@@ -25,5 +26,11 @@ export class HomePage {
       .then(() => console.log('Success'))
       .catch((reason: any) => console.log(reason));
   }
+
+  logout(){
+    // Remove API token 
+    const root = this.app.getRootNav();
+    root.popToRoot();
+}
  
 }

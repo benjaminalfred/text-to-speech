@@ -1,12 +1,15 @@
 <ion-header>
   <ion-navbar>
+      <img ion-right src="assets/imgs/bananalogo.png" class="navbarLogo"/>
     <ion-title>
       Ionic Text To Speech
     </ion-title>
   </ion-navbar>
 </ion-header>
+
  
 <ion-content padding>
+    <h2>What do you want to say?</h2>
   <ion-list>
     <!--Text-->
     <ion-item>
@@ -32,4 +35,5 @@
     <!--Play text-->
     <button ion-button full (click)="playText()">Play Text</button>
   </ion-list>
+  <button ion-button color="primary" (click)="logout()">Logout</button>  
 </ion-content>

@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-
+import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { UserAuthProvider } from '../../providers/user-auth/user-auth';
-
 import { HomePage } from '../home/home';
 import { RegisterPage } from '../register/register';
 import { TabsPage } from '../tabs/tabs';
@@ -24,12 +22,25 @@ export class LoginPage {
 
   };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public  navCtrl:  NavController, public  navParams:  NavParams, private  app:  App, public  appUser:  UserAuthProvider) {
   }
 
-  login(){
-    // Your app login API web service call triggers 
-    this.navCtrl.push(TabsPage, {}, {animate: false});
-  }
+  login(logUser) {
+    console.log("login");
+    this.goHome();
+}
 
+goHome(){
+    this.app.getRootNav().setRoot(TabsPage, {animate:  true, direction:  'forward'});
+}
+
+onRegister() {
+    console.log("register");
+    this.appUser.register(this.user).subscribe( res  => {
+        console.log(res);
+        this.goHome();
+    }, 
+  err  =>{}
+ );
+ }
 }

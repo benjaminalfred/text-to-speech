@@ -11,7 +11,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class UserAuthProvider {
 
-  url: string = "http://mean-stack-charlie-2018-ben-phortonssf.c9users.io:8080/api/AppUsers";
+  url: string = "http://localhost:3000/api/AppUsers";
   returnUrl: string = "main";
   constructor( private http : HttpClient) {
     console.log('Hello UserAuthProvider Provider');

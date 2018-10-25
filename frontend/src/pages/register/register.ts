@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
+import { UserAuthProvider } from '../../providers/user-auth/user-auth';
 import { HomePage } from '../home/home';
+import { LoginPage } from '../login/login';
+import { TabsPage } from '../tabs/tabs';
 
 /**
  * Generated class for the RegisterPage page.
@@ -21,15 +24,21 @@ export class RegisterPage {
     password: ""
   };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private app: App, public appUser: UserAuthProvider) {
   }
 
-  register() {
-    this.navCtrl.push(HomePage)
+  onRegister() {
+    console.log("register");
+    this.appUser.register(this.user).subscribe(res => {
+      console.log(res);
+      this.goHome();
+    },
+      err => { }
+    );
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RegisterPage');
+  goHome() {
+    this.app.getRootNav().setRoot(TabsPage, { animate: true, direction: 'forward' });
   }
 
 }

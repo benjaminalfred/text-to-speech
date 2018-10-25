@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -13,6 +14,7 @@ import { RegisterPage } from '../pages/register/register';
 import { UserAuthProvider } from '../providers/user-auth/user-auth';
 
 
+
 @NgModule({
   declarations: [
     MyApp,
@@ -24,6 +26,7 @@ import { UserAuthProvider } from '../providers/user-auth/user-auth';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],

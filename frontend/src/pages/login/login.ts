@@ -22,25 +22,16 @@ export class LoginPage {
 
   };
 
-  constructor(public  navCtrl:  NavController, public  navParams:  NavParams, private  app:  App, public  appUser:  UserAuthProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private app: App, public appUser: UserAuthProvider) {
   }
 
   login(logUser) {
     console.log("login");
     this.goHome();
-}
+  }
 
-goHome(){
-    this.app.getRootNav().setRoot(TabsPage, {animate:  true, direction:  'forward'});
-}
+  goHome() {
+    this.app.getRootNav().setRoot(TabsPage, { animate: true, direction: 'forward' });
+  }
 
-onRegister() {
-    console.log("register");
-    this.appUser.register(this.user).subscribe( res  => {
-        console.log(res);
-        this.goHome();
-    }, 
-  err  =>{}
- );
- }
 }
